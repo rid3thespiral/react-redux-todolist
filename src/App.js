@@ -4,8 +4,8 @@ import './App.css';
 
 let todos = ['fare', 'dire'];
 
-function storeReducer(state = ['todo1', 'todo2'], action){
-  return state;
+function storeReducer(state = [], action){
+  return {...state};
 }
 
 class App extends Component {
@@ -16,13 +16,18 @@ class App extends Component {
          
       ]
     }
+
+    this.todoInput = React.createRef('input')
   }
 
   componentDidMount(){
     const store = createStore(storeReducer, {todos: [...todos] } );
     this.setState({todos:[...store.getState().todos]})
   }
-  
+  addTodo = () => {
+    const todo = this.todoInput.current.value;
+    alert(todo)
+  }
   render () {
   return (
     <div className="App">
@@ -34,6 +39,8 @@ class App extends Component {
         
           
       </header>
+      <input ref = {this.todoInput} />
+      <button onClick = {this.addTodo}>Add</button>
       <ul>
           {
           this.state.todos.map( (todo,i)=> <li key={i}> {todo} </li> )
