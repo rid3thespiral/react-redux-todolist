@@ -5,8 +5,21 @@ import './App.css';
 let todos = ['fare', 'dire'];
 
 function storeReducer(state = [], action){
-  return {...state};
+  switch(action.type){
+    case 'ADD_TODO':
+    return {
+      todos : [
+        action.todo,
+        ...state.todos
+      ]
+    }
+  
+  default:
+    return {...state};
+  }
 }
+
+const store = createStore(storeReducer, {todos: [...todos] } );
 
 class App extends Component {
   constructor(){
@@ -17,7 +30,7 @@ class App extends Component {
       ]
     }
 
-    this.todoInput = React.createRef('input')
+    this.todoInput = React.createRef('input');
   }
 
   componentDidMount(){
@@ -26,7 +39,10 @@ class App extends Component {
   }
   addTodo = () => {
     const todo = this.todoInput.current.value;
-    alert(todo)
+    store.dispatch({
+        type: 'ADD_TODO',
+        todo : todo
+    });
   }
   render () {
   return (
