@@ -13,6 +13,10 @@ function storeReducer(state = [], action){
         ...state.todos
       ]
     }
+    case 'DELETE_TODO':
+      return {
+
+      }
   
   default:
     return {...state};
@@ -48,6 +52,15 @@ class App extends Component {
         todo : todo
     });
   }
+
+  removeTodo = (i) => {
+    console.log(i)
+    store.dispatch({
+        type: 'REMOVE_TODO',
+        id: i
+    });
+  }
+
   render () {
   return (
     <div className="App">
@@ -63,7 +76,7 @@ class App extends Component {
       <button onClick = {this.addTodo}>Add</button>
       <ul>
           {
-          this.state.todos.map( (todo,i)=> <li key={i}> {todo} </li> )
+          this.state.todos.map( (todo,i)=> <li key={i}> {todo} <button onClick={()=> {this.removeTodo(i)}}>-</button></li> )
           }
         </ul>
     </div>
