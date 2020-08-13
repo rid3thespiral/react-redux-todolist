@@ -13,9 +13,12 @@ function storeReducer(state = [], action){
         ...state.todos
       ]
     }
-    case 'DELETE_TODO':
+    case 'REMOVE_TODO':
       return {
-
+        todos : [
+          ...state.todos.slice(0, action.id),
+          ...state.todos.slice(action.id+1 )
+        ]
       }
   
   default:
@@ -76,7 +79,7 @@ class App extends Component {
       <button onClick = {this.addTodo}>Add</button>
       <ul>
           {
-          this.state.todos.map( (todo,i)=> <li key={i}> {todo} <button onClick={()=> {this.removeTodo(i)}}>-</button></li> )
+          this.state.todos.map( (todo,i)=> <li key={i}> {todo} <button onClick={ this.removeTodo.bind(null,i)}>-</button></li> )
           }
         </ul>
     </div>
