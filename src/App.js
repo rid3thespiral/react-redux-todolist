@@ -34,8 +34,12 @@ class App extends Component {
   }
 
   componentDidMount(){
-    const store = createStore(storeReducer, {todos: [...todos] } );
+    
     this.setState({todos:[...store.getState().todos]})
+    store.subscribe( () => {
+      console.log(store.getState());
+      this.setState({todos:[...store.getState().todos]});
+    })
   }
   addTodo = () => {
     const todo = this.todoInput.current.value;
