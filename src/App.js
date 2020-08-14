@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { createStore } from 'redux';
 import './App.css';
+import {Todolist} from './components/todolist.js'
 
 let todos = ['fare', 'dire'];
 
@@ -77,11 +78,7 @@ class App extends Component {
       </header>
       <input ref = {this.todoInput} />
       <button onClick = {this.addTodo}>Add</button>
-      <ul>
-          {
-          this.state.todos.map( (todo,i)=> <li key={i}> {todo} <button onClick={ this.removeTodo.bind(null,i)}>-</button></li> )
-          }
-        </ul>
+       <Todolist todos={todos}/>
     </div>
   );
 }
