@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { createStore } from 'redux';
 import './App.css';
 import Todolist from './components/todolist.js'
+import Header from './components/header'
 
 let todos = ['fare', 'dire'];
 
@@ -68,14 +69,7 @@ class App extends Component {
   render () {
   return (
     <div className="App">
-      <header className="App-header">
-        
-        <h1>
-          TODO LIST 
-        </h1>
-        
-          
-      </header>
+      <Header/>
       <input ref = {this.todoInput} />
       <button onClick = {this.addTodo}>Add</button>
        <Todolist todos={todos} />
