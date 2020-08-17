@@ -1,8 +1,13 @@
 import React from 'react';
+import {createStore} from 'redux';
+import storeReducer from './reducers/index';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+let todos = ['fare', 'dire'];
+const store = createStore(storeReducer, {todos: [...todos] } );
 
 ReactDOM.render(
   <React.StrictMode>
