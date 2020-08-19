@@ -1,10 +1,14 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 
 export default function addTodoComponent({addnew}){
     let todoInput;
 return (
     <div className = "addtodo">
-    <input ref = {(node) => { todoInput = node }} />
+    <input onKeyUp= { (evt) => { 
+        if(+evt.keyCode === '13'){ 
+        addnew(todoInput.value) 
+    } } }
+    ref = {(node) => { todoInput = node }} />
       <button onClick = {
           () => {
               addnew(todoInput.value)

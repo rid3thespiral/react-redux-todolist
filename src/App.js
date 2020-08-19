@@ -4,16 +4,8 @@ import MyTodoList from './containers/myTodolist'
 import Header from './components/header'
 import AddTodo from './containers/addnew'
 
-
-
 class App extends Component {
-  constructor(){
-    super();
-  }
-
  
-  
-
   render () {
   return (
     <div className="App">
