@@ -7,8 +7,19 @@ import {Provider} from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-let todos = ['fare', 'dire'];
-const store = createStore(storeReducer, {todos: [...todos] } );
+let storeTodos = {
+  todos: [
+{id:0, 
+  todo:'Fare la spesa', 
+  completed: false},
+{id:1, 
+  todo:'Fare i compiti', 
+  completed: false},
+{id:2, todo:'Comprare il balsamo', completed: false}
+  ]
+};
+
+const store = createStore(storeReducer, {todos: [...storeTodos.todos] } );
 
 ReactDOM.render(
   <React.StrictMode>
