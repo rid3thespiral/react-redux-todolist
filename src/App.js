@@ -17,9 +17,12 @@ class App extends Component {
   render () {
   return (
     <div className="App">
+      
       <Header/>
+      <div className="container">
       <AddTodo></AddTodo>
        <MyTodoList/>
+       </div>
     </div>
   );
 }
