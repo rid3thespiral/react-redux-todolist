@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import MyTodoList from './containers/myTodolist'
 import Header from './components/header'
-import AddTodo from './components/addtodo'
+import AddTodo from './containers/addnew'
 
 
 
