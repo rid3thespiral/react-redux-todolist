@@ -1,11 +1,11 @@
 import React from 'react';
 import Todo from './todo'
-export default function todoList({todos}){
-
+export default function todoList({todos, removeTodo, id}){
+//dispatch(removeTodo(i))
 return (
 <ul>
 {
- todos.map( (todo,i) => <Todo key={i} todo ={todo}/>)
+ todos.map( (todo,i) => <Todo id={i} onClick={removeTodo} key={i} todo ={todo}/>)
 }
 </ul>
 
